@@ -29,11 +29,10 @@ function vibrate(){
 window.addEventListener('load', () => {
   const storedPrayer = localStorage.getItem('selectedPrayer');
   const storedCount = localStorage.getItem('prayerCount');
-  
+  prayer.style.fontSize = '0.5px'
+  prayer.style.visibility='hidden'
   if (storedPrayer && storedCount !== null) {
     prayer.textContent = storedPrayer;
-    prayer.style.fontSize = '0.5px'
-    prayer.style.visibility='hidden'
     document.getElementById('dropdownMenuButton2').textContent = storedPrayer;
     countInt = parseInt(storedCount);
     document.querySelector("#count").textContent = countInt.toString();
