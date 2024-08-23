@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./renderer/styles/style.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script defer src="https://kit.fontawesome.com/b079af15ca.js" crossorigin="anonymous"></script>
+
+  <title>Rosary Counter</title>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- <nav class="nav">
+      <div class="nav-title"><img src="./arabic.png" alt="Azkar">Azkar</div>
+      <div class="nav-buttons">
+        <button id="minimize"><i class="fa-solid fa-window-minimize"></i></button>
+        <button id="maximize"><i class="fa-regular fa-square"></i></button>
+        <button id="close"><i class="fa-regular fa-x mark"></i></button>
+      </div>
+    </nav>  -->
+    
+    <!-- Home Section -->
+    <div class="modal fade bd-example-modal-lg shadow" tabindex="-1" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog text-center modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-black-50 px-3" id="modalLabel">Dynamic Modal Title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="modal-text text-black-50 p-5">قال رسول الله ﷺ: «كل كلام أو أمر ذي بال لا يفتح بذكر الله فهو أبتر أو قال أقطع».</p>
+          </div>          
+        </div>
+      </div>
+    </div>
+    <div id="home-section" class="main-content position-absolute start-50 top-50 translate-middle">
+      <div class="dropdown position-fixed start-50 translate-middle-x">
+        <button class="btn btn-secondary dropdown-toggle  bg-transparent text-black-50" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"></button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+          <li><span class="dropdown-item" aria-selected="true" data-content="قال عليه الصلاة والسلام: أحب الكلام إلى الله أربع: سبحان الله، والحمد لله، ولا إله إلا الله، والله أكبر">الله أكبر</span></li>
+          <li><span class="dropdown-item" data-content="رسول الله صلَّى اللهُ عليه وسلَّم قال: «إن سبحان الله، والحمد لله، ولا إله إلا الله، والله أكبر: تنفض الخطايا كما تنفض الشجرة ورقها» صححه الألباني في (السلسلة الصحيحة:3168).">الحمدلله</span></li>
+          <li><span class="dropdown-item" data-content="قالَ رَسُولُ اللَّهِ ﷺ: منْ لَزِم الاسْتِغْفَار، جَعَلَ اللَّه لَهُ مِنْ كُلِّ ضِيقٍ مخْرجًا، ومنْ كُلِّ هَمٍّ فَرجًا، وَرَزَقَهُ مِنْ حيْثُ لاَ يَحْتَسِبُ رواه أبو داود">أستغفر الله</span></li>
+          <li><span class="dropdown-item" data-content="قال النبي ﷺ: 'كلمتان خفيفتان على اللسان، ثقيلتان في الميزان، حبيبتان إلى الرحمن: سبحان الله وبحمده، سبحان الله العظيم' (متفق عليه).">سبحان الله وبحمده سبحان الله العظيم</span></li>
+          <li><span class="dropdown-item" data-content="قال النبي ﷺ: 'من قال: لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير في يوم مائة مرة كانت له عدل عشر رقاب وكتبت له مائة حسنة ومحيت عنه مائة سيئة وكانت له حرزا من الشيطان يومه ذلك حتى يمسي ولم يأت أحد بأفضل مما جاء به إلا أحد عمل أكثر من ذلك' (رواه البخاري ومسلم).">لا إله إلا الله وحده لا شريك له له الملك وله الحمد وهو على كل شيء قدير</span></li>
+          <li><span class="dropdown-item" data-content='روى الإمام مسلم عن جويرية رضي الله عنها أن النبي ﷺ خرج من عندها بكرة حين صلى الصبح، وهي في مسجدها، ثم رجع بعد أن أضحى، وهي جالسة فقال: "ما زلت على الحال التي فارقتك عليها؟" قالت: نعم، قال النبي ﷺ: "لقد قلت بعدك أربع كلمات، ثلاث مرات، لو وزنت بما قلت منذ اليوم لوزنتهن: سبحان الله عدد خلقه، سبحان الله رضا نفسه، سبحان الله زنة عرشه، سبحان الله مداد كلماته".'>سبحان الله عدد خلقه ورضا نفسه وزنة عرشه ومداد كلماته</span></li>
+          <li><span class="dropdown-item" data-content='قال النبي ﷺ: "ألا أدلك على كنز من كنوز الجنة؟ لا حول ولا قوة إلا بالله" (رواه البخاري ومسلم).'>لا حول ولا قوة إلا بالله العلي العظيم</span></li>
+        </ul>
+      </div>
+      <div class="counter text-center">
+        <div class="image user-select-none">
+          <img src="7.png" id="rosary" alt="">
+        </div>
+        <span id="count">0</span>
+        <div class="mx-5">
+          <button class="mx-2" id="count-btn" title="انقر" onclick=""></button>
+          <button class="mx-2" id="reset-btn" title="اعادة"></button>
+        </div>
+      </div>
+      <div class="info text-center mt-5" id="info">
+        <h4 id="prayer">سبحان الله</h4>
+        <p>سبحان الله العظيم</p>  
+      </div>
+    </div>
+    
+    <!-- History Section -->
+    <div id="history-section" class="main-content d-none">
+      <p id="record-number" class="display-6 m-2 text-center"></p>
+      <div id="history-container" class="container"></div>
+      <button id="clear-history-btn" class="floating-btn">
+        <i class="fas fa-trash-alt"></i></button>
+    </div>
+    
+    <!-- Settings Section -->
+    <div id="settings-section" class="main-content position-absolute start-50 top-50 translate-middle d-none">
+      <div class="container w-100">
+        <div class="form-check form-switch my-3">
+          <input class="form-check-input btn-toolbar" type="checkbox" id="flexSwitchCheckDark">
+          <label class="form-check-label" for="flexSwitchCheckDark">Dark Mode</label>
+        </div>
+        <div class="form-check form-switch my-3">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckVibration" checked >
+          <label class="form-check-label" for="flexSwitchCheckVibration">Vibration (Phones)</label>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="footer position-fixed">
+      <div class="footer-buttons">
+        <button id="history-button" title="history" class="text-black-50"><i class="fa-solid fa-bookmark"></i></button>
+        <button id="home-button" title="home" class="active"><i class="fa-solid fa-home"></i></button>
+        <button id="settings-button" title="settings" class="text-black-50"><i class="fa-solid fa-gear"></i></button>
+      </div>
+    </footer>
+  </div>
+
+  <script defer src="./renderer/scripts/renderer.js"></script>
+</body>
+</html>
