@@ -197,6 +197,10 @@ document.addEventListener('DOMContentLoaded', () => {
       historyItem.addEventListener('dblclick', () => {
         addClearButton(historyItemWrapper, clearButton);
       });
+      // Make sure if the clear button is clicked to remove from the local storage 
+      clearButton.addEventListener('click', () => {
+        deleteHistoryItem(prayerData, historyItemWrapper);
+      });
     }
 
     // Ensure the clear button is removed if not in use
@@ -218,11 +222,16 @@ window.addEventListener('beforeunload', function (event) {
       count: countInt,
       date: new Date().toLocaleString()
   };
-  if(prayerData.count !=0){
-    let prayerHistory = JSON.parse(localStorage.getItem('prayerHistory')) || [];
+  let prayerHistory = JSON.parse(localStorage.getItem('prayerHistory')) || [];
+  if (prayerHistory.length > 0 && prayerHistory[prayerHistory.length - 1].name === prayerData.name && prayerHistory[prayerHistory.length - 1].count === prayerData.count) {
+    console.error("Prayer data already exists in the history.");
+  }
+  else if(prayerData.count > 0){
     prayerHistory.push(prayerData);
     localStorage.setItem('prayerHistory', JSON.stringify(prayerHistory));
-  } else {
+  
+  }
+  else {
     console.error("Count is zero, not saving to history.");
   }
 });
